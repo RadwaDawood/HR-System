@@ -1,0 +1,51 @@
+﻿@model IEnumerable<HR_System.Models.AttDep>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Employee Name
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Date)*@
+                Date
+            </th>
+            <th>
+                Attendance Time
+            </th>
+            <th>
+                Check-out Time
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Emp.EmpName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Attendance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Departure)
+                </td>
+                <td>
+                    <form>
+                        <a asp-controller="Attendance" asp-action="Delete" asp-route-id="@item.AttId"
+                       class="btn btn-danger mr-1 icon-trash" id="deleteicon1" onclick="return confirm('You Are Going to delete this Record , Are You Sure?')">
+                            Delete
+                        </a>
+                        <input type="hidden" id="id" name="id" value="@item.AttId" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
