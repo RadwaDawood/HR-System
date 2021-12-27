@@ -126,7 +126,7 @@
                             
                                  @if (  @i.PageId == 1 && @i.Read )
                             {
-                                <li>  <a href="#"><i class="icon-users"></i><span data-i18n="" class="menu-title"> Employees</span></a></li>
+                                <li>  <a asp-action="Index" asp-controller="Employees"><i class="icon-users"></i><span data-i18n="" class="menu-title"> Employees</span></a></li>
                                 @*<ul class="menu-content">
                                     <li><a asp-action="Index" asp-controller="Employees" class="menu-item"> <i class="icon-bar"></i> Employees Statistics</a>
                                     </li>
